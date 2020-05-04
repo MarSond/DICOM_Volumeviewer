@@ -8,7 +8,7 @@ separator="|"
 block_separator="#"
 
 parser = argparse.ArgumentParser(description='DICOM Ordner in Zwischendatei übersetzen.')
-parser.add_argument("-s", "--source", required=True, help="Ordner mit DICOM Serie")
+parser.add_argument("-s", "--source", required=True, help="Ordner mit Dateien der DICOM Serie")
 parser.add_argument("-t", "--target", required=True, help="Zieldatei <Vollständiger Pfad>")
 args=vars(parser.parse_args())
 
