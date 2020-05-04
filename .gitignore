@@ -3,9 +3,10 @@ Unity_Project/Library/
 
 Unity_Project/Logs/
 
-Unity_Project/Assets/BildExport/
+Unity_Project/Assets/BildExport/*
 
 !Unity_Project/Assets/BildExport/Exported-Kopf-CT.txt
+
 !Unity_Project/Assets/BildExport/Exported-Kopf-CT.txt.meta
 
 
@@ -20,5 +21,3 @@ Unity_Project/Assembly-CSharp.csproj
 Unity_Project/Assembly-CSharp-Editor.csproj
 
 Unity_Project/Temp/
-
-LICENSE.md
