@@ -233,7 +233,7 @@ PrefabInstance:
         type: 3}
       propertyPath: dataFile
       value: 
-      objectReference: {fileID: 4900000, guid: b5338e6b683c6354fa52796d1b828210, type: 3}
+      objectReference: {fileID: 4900000, guid: 9e0037e0e8ef7594caa428fe72f42438, type: 3}
     - target: {fileID: 1809279738712496083, guid: 9c9356bce37eb434b8638b2c29039a62,
         type: 3}
       propertyPath: sceneLight

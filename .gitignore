@@ -5,6 +5,10 @@ Unity_Project/Logs/
 
 Unity_Project/Assets/BildExport/
 
+!Unity_Project/Assets/BildExport/Exported-Kopf-CT.txt
+!Unity_Project/Assets/BildExport/Exported-Kopf-CT.txt.meta
+
+
 Unity_Project/Assets/BildAssets/
 
 .vscode/

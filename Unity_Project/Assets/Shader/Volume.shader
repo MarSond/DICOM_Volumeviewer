@@ -6,7 +6,7 @@ Shader "Ray Marching/Volume"
 		[HideInInspector] _Volume ("Volume", 3D) = "" {}
 		[NoScaleOffset] _TFTex("Transfer Function Texture (Generated)", 2D) = "" {}
 		_NoiseTex("Noise Texture (Generated)", 2D) = "white" {}
-		_Intensity ("Intensity", Range(1.0, 5.0)) = 1.3
+		_Intensity ("Intensity", Range(0.0, 5.0)) = 1.3
 		_Threshold ("Render Threshold", Range(0,1)) = 0.5
 		_RaySteps ("Raycasting Steps", Range(1,1000)) = 64
 		_WinWidth("Window Width", Range(1, 2500)) = 500
@@ -130,12 +130,13 @@ Shader "Ray Marching/Volume"
                 float3 rayDir = normalize(ObjSpaceViewDir(float4(i.vertexLocal, 0.0f)));
 				#if MODE_SURF
 					rayStartPos += rayDir * stepSize * _RaySteps;
-					float3 lightDir = normalize(_LightDir);
+					float3 lightDir = rayDir; //Licht aus Blickrichtung
+					// float3 lightDir = normalize(_LightDir); //Lickt aus Lichvektor
 					rayDir = -rayDir;
-					rayStartPos = rayStartPos + (2.0f * rayDir / _RaySteps) * tex2D(_NoiseTex, float2(i.uv.x, i.uv.y)).r;
+					rayStartPos = rayStartPos + (2.0f * rayDir / _RaySteps) * tex2D(_NoiseTex, float2(i.uv.x, i.uv.y)).r; //Zufälliger Offset
 				#endif
 				float4	ray_col = float4(0.0f, 0.0f, 0.0f, 0.0f);
-				for (int step =1; step <= _RaySteps; step++) {
+				for (int step = 1; step <= _RaySteps; step++) {
 					const float dist = step * stepSize;
                     const float3 ray_pos = rayStartPos + rayDir * dist;
 					if (ray_pos.x < 0.0f || ray_pos.x >= 1.0f || ray_pos.y < 0.0f || ray_pos.y > 1.0f || ray_pos.z < 0.0f || ray_pos.z > 1.0f){
